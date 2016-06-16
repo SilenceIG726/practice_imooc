@@ -1,0 +1,57 @@
+#wrap{
+	width:240px;
+	height: 240px;
+	border-radius: 120px;
+	background: cyan;
+	margin: 50px auto;
+	position: relative;
+}
+#clock{
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	background: white;
+	position: absolute;
+	left: 20px;
+	top: 20px;
+}
+#bNumber{
+	width:100%;
+	height: 100%;
+	position: relative;
+}
+#bNumber div{
+	width:190px;
+	height: 20px;
+	position: absolute;
+	left: 10px;
+	top: 90px;
+}
+#bNumber span{
+	display: block;
+	width:20px;
+	height: 20px;
+}
+.number{
+	position: absolute;
+	bottom: 100px;
+	transform-origin: 50% 90%;
+}
+#hour{
+	width:5px;
+	height: 60px;
+	left:100px;
+	background: black;
+}
+#minute{
+	width:3px;
+	height: 80px;
+	left:101px;
+	background: gray;
+}
+#second{
+	width: 1px;
+	height: 90px;
+	left: 102px;
+	background: red;
+}

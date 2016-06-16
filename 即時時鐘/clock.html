@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>即時時鐘</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+<body>
+	<!-- 錶盤 -->
+	<div id="wrap">
+		<!-- 鐘錶 -->
+		<div id="clock">
+			<!-- 指針數 -->
+			<div id="bNumber">
+				<div><span>9</span></div>
+				<div><span>10</span></div>
+				<div><span>11</span></div>
+				<div><span>12</span></div>
+				<div><span>1</span></div>
+				<div><span>2</span></div>
+				<div><span>3</span></div>
+				<div><span>4</span></div>
+				<div><span>5</span></div>
+				<div><span>6</span></div>
+				<div><span>7</span></div>
+				<div><span>8</span></div>
+			</div>
+			<!-- 時針 -->
+			<div id="hour" class="number"></div>
+			<!-- 分針 -->
+			<div id="minute" class="number"></div>
+			<!-- 秒針 -->
+			<div id="second" class="number"></div>
+		</div>
+	</div>
+
+</body>
+<script>
+	var bNumber = document.getElementById('bNumber');
+	var divs = bNumber.getElementsByTagName('div');
+	var spans = bNumber.getElementsByTagName('span');
+	//通過旋轉，重置終點數的位置
+	for (var i = 0; i < divs.length; i++) {
+		divs[i].style.transform = 'rotate(' + i*30 + 'deg)';
+	}
+	//通過旋轉，重置字的位置
+	for (var i = 0; i < divs.length; i++) {
+		spans[i].style.transform = 'rotate(' + i*-30 + 'deg)';
+	}
+
+	var hour = document.getElementById('hour');
+	var minute = document.getElementById('minute');
+	var second = document.getElementById('second');
+	function colorNumber() {
+		// 獲取系統時間
+		var nowTime = new Date();
+		var nowHour = nowTime.getHours();
+		var nowMinute = nowTime.getMinutes();
+		var nowSecond = nowTime.getSeconds();
+		var minuteDeg = nowMinute / 60*30;
+		//時針旋轉角度
+		hour.style.transform = 'rotate(' +(nowHour*30 + minuteDeg) +'deg)';
+		var secondDeg = nowSecond / 60*6;
+		//分針旋轉角度
+		minute.style.transform = 'rotate(' +(nowMinute*6 + secondDeg) +'deg)';	
+		//秒針旋轉角度
+		second.style.transform = 'rotate(' +nowSecond*6 +'deg)';
+	}
+	colorNumber();
+	setInterval('colorNumber()', 1000);
+</script>
+</html>
